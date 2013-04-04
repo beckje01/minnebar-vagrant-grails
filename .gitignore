@@ -1,3 +1,7 @@
 .vagrant
 .classpath
 .project
+*.iml
+.idea
+out/
+target/
