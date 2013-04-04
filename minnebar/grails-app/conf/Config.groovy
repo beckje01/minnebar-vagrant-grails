@@ -89,3 +89,10 @@ log4j = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+
+grails {
+	redis {
+		host ="10.0.10.31"
+	}
+}

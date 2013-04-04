@@ -27,19 +27,16 @@ Vagrant::Config.run do |config|
       redis_config.vm.network :hostonly, "10.0.10.31"
 
       redis_config.vm.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-
-
-      redis_config.vm.forward_port 6379, 6379
       
-       redis_config.vm.provision :chef_solo do |chef|
-          chef.cookbooks_path = "redis/chef/cookbooks"
-          chef.roles_path = "redis/chef/roles"
-          chef.data_bags_path = "redis/chef/data_bags"
-          chef.add_recipe "redis::source"
-          chef.add_recipe "redis::master"
+      redis_config.vm.provision :chef_solo do |chef|
+        chef.cookbooks_path = "redis/chef/cookbooks"
+        chef.roles_path = "redis/chef/roles"
+        chef.data_bags_path = "redis/chef/data_bags"
+        chef.add_recipe "redis::source"
+        chef.add_recipe "redis::master"
 
-          # You may also specify custom JSON attributes:
-          chef.json = { :redis => { :version => "2.6.7", :appendonly => "yes" } }
-        end
+        # You may also specify custom JSON attributes:
+        chef.json = { :redis => { :version => "2.6.7", :appendonly => "yes" } }
+      end
     end
 end
