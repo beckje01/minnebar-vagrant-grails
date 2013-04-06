@@ -14,6 +14,17 @@ Vagrant::Config.run do |config|
     # Configure DNS according with the new version of vagrant
     web_config.vm.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
 
+    config.vm.share_folder "minnebar", "~/minnebar", "./minnebar"
+
+
+    web_config.vm.provision :puppet do |puppet|
+      puppet.options = ["--verbose","--debug"]
+      puppet.module_path    = "grails/modules"
+      puppet.manifests_path = "grails/manifests"
+      puppet.manifest_file  = "base.pp"
+
+    end
+
 
     # Forward a port from the guest to the host, which allows for outside
     # computers to access the VM, whereas host only networking does not.

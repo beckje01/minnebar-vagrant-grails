@@ -4,3 +4,12 @@
 [submodule "redis/chef/cookbooks/build-essential"]
 	path = redis/chef/cookbooks/build-essential
 	url = https://github.com/opscode-cookbooks/build-essential
+[submodule "grails/modules/java"]
+	path = grails/modules/java
+	url = git://github.com/puppetlabs/puppetlabs-java.git
+[submodule "grails/modules/stdlib"]
+	path = grails/modules/stdlib
+	url = git://github.com/puppetlabs/puppetlabs-stdlib.git
+[submodule "grails/modules/vagrant"]
+	path = grails/modules/vagrant
+	url = git://github.com/beckje01/puppet-vagrant.git
